@@ -92,7 +92,7 @@ const shuffle = (array: Card[]): Card[] => {
 
 export default function MemoryGame() {
   const [cards, setCards] = useState<Card[]>([]);
-  const [flippedCards, setFlippedCards] = useState([]);
+  const [flippedCards, setFlippedCards] = useState<HandleCardClickProps[]>([]);
   const [moves, setMoves] = useState(0);
   const [gameWon, setGameWon] = useState(false);
   const [showAlert, setShowAlert] = useState(false); // Nuevo estado para controlar la visibilidad de la alerta
@@ -113,7 +113,16 @@ export default function MemoryGame() {
     }
   }, [gameWon]);
 
-  const handleCardClick = (clickedCard) => {
+  interface HandleCardClickProps {
+    id: number;
+    name: string;
+    image: string;
+    rank: number;
+    isFlipped: boolean;
+    isMatched: boolean;
+  }
+
+  const handleCardClick = (clickedCard: HandleCardClickProps): void => {
     if (flippedCards.length === 2 || clickedCard.isFlipped || clickedCard.isMatched) return;
 
     const newCards = cards.map(card =>
