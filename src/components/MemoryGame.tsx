@@ -69,7 +69,19 @@ const createCards = () => {
   return shuffle(pairs);
 };
 
-const shuffle = (array) => {
+interface Player {
+  name: string;
+  image: string;
+  rank: number;
+}
+
+interface Card extends Player {
+  id: number;
+  isFlipped: boolean;
+  isMatched: boolean;
+}
+
+const shuffle = (array: Card[]): Card[] => {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -79,7 +91,7 @@ const shuffle = (array) => {
 };
 
 export default function MemoryGame() {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState<Card[]>([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [moves, setMoves] = useState(0);
   const [gameWon, setGameWon] = useState(false);
