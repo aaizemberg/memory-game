@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Shuffle } from 'lucide-react';
 import { Alert, AlertTitle } from '@/components/ui/alert';
 import { Card } from '@/components/ui/card';
+import Image from 'next/image';
 
 const players = [
   {
@@ -182,11 +183,19 @@ export default function MemoryGame() {
                 {(card.isFlipped || card.isMatched) ? (
                   <div className="text-center p-2 flex flex-col items-center justify-between h-full">
                     <div className="w-20 h-32 overflow-hidden mb-1 flex-shrink-0">
-                      <img 
+                    <Image 
+                      // loading="eager"
+                      src={card.image}
+                      alt={card.name}
+                      className="w-full h-full object-cover"
+                      width={256}   // Specify the desired width
+                      height={365}  // Specify the desired height
+                    />
+                    {/*<img 
                         src={card.image} 
                         alt={card.name} 
                         className="w-full h-full object-cover"
-                      />
+                    /> */}
                     </div>
                     <div className="flex-grow flex flex-col justify-center">
                       <p className="text-xs font-medium line-clamp-2">{card.name} (#{card.rank})</p>
