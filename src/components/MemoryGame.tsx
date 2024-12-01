@@ -8,54 +8,54 @@ import Image from 'next/image';
 
 const players = [
   {
-    "name": "WANG Chuqin",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121558_Headshot_R_WANG_Chuqin.png",
-    "rank": 1
+    name: "WANG Chuqin",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121558_Headshot_R_WANG_Chuqin.png",
+    rank: 1
   },
   {
-    "name": "LIN Shidong",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/137237_Headshot_R_LIN_Shidong.png",
-    "rank": 2
+    name: "LIN Shidong",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/137237_Headshot_R_LIN_Shidong.png",
+    rank: 2
   },
   {
-    "name": "FAN Zhendong",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121404_Headshot_R_FAN_Zhendong.png",
-    "rank": 3
+    name: "Tomokazu HARIMOTO",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123980_HEADSHOT_R_Tomokazu_HARIMOTO.png",
+    rank: 3
   },
   {
-    "name": "Felix LEBRUN",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/135977_HEADSHOT_R_Felix_LEBRUN.png",
-    "rank": 4
+    name: "Felix LEBRUN",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/135977_HEADSHOT_R_Felix_LEBRUN.png",
+    rank: 4
   },
   {
-    "name": "LIANG Jingkun",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/119588_Headshot_R_LIANG_Jingkun.png",
-    "rank": 5
+    name: "LIANG Jingkun",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/119588_Headshot_R_LIANG_Jingkun.png",
+    rank: 5
   },
   {
-    "name": "Hugo CALDERANO",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115641_Headshot_R_CALDERANO_Hugo.png",
-    "rank": 6
+    name: "FAN Zhendong",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121404_Headshot_R_FAN_Zhendong.png",
+    rank: 6
   },
   {
-    "name": "Tomokazu HARIMOTO",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123980_HEADSHOT_R_Tomokazu_HARIMOTO.png",
-    "rank": 7
+    name: "Hugo CALDERANO",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115641_Headshot_R_CALDERANO_Hugo.png",
+    rank: 7
   },
   {
-    "name": "MA Long",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/105649_Headshot_R_MA_Long.png",
-    "rank": 8
+    name: "MA Long",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/105649_Headshot_R_MA_Long.png",
+    rank: 8
   },
   {
-    "name": "LIN Gaoyuan",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115910_Headshot_R_LIN_Gaoyuan.png",
-    "rank": 9
+    name: "Truls MOREGARD",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/122044_Headshot_R_MOREGARD_Truls.png",
+    rank: 9
   },
   {
-    "name": "Truls MOREGARD",
-    "image": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/122044_Headshot_R_MOREGARD_Truls.png",
-    "rank": 10
+    name: "LIN Gaoyuan",
+    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115910_Headshot_R_LIN_Gaoyuan.png",
+    rank: 10
   }
 ];
 
@@ -107,7 +107,7 @@ export default function MemoryGame() {
       const timer = setTimeout(() => {
         setShowAlert(false); // Oculta la alerta después de 5 segundos
       }, 5000);
-      
+
       // Limpieza del timer si el componente se desmonta antes
       return () => clearTimeout(timer);
     }
@@ -142,7 +142,7 @@ export default function MemoryGame() {
           );
           setCards(matchedCards);
           setFlippedCards([]);
-          
+
           if (matchedCards.every(card => card.isMatched)) {
             setGameWon(true);
           }
@@ -175,7 +175,7 @@ export default function MemoryGame() {
           <h1 className="text-xl font-bold">Memoria: Top 10 Tenis de Mesa</h1>
           <div className="flex items-center gap-4">
             <span className="text-lg">Movimientos: {moves}</span>
-            <button 
+            <button
               onClick={resetGame}
               className="flex items-center gap-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
             >
@@ -195,24 +195,23 @@ export default function MemoryGame() {
           {cards.map((card) => (
             <Card
               key={card.id}
-              className={`w-full h-full cursor-pointer transition-all duration-300 ${
-                card.isFlipped || card.isMatched ? 'bg-white' : 'bg-blue-500'
-              }`}
+              className={`w-full h-full cursor-pointer transition-all duration-300 ${card.isFlipped || card.isMatched ? 'bg-white' : 'bg-blue-500'
+                }`}
               onClick={() => handleCardClick(card)}
             >
               <div className="h-full flex items-center justify-center">
                 {(card.isFlipped || card.isMatched) ? (
                   <div className="text-center p-2 flex flex-col items-center justify-between h-full">
                     <div className="w-20 h-32 overflow-hidden mb-1 flex-shrink-0">
-                    <Image 
-                      // loading="eager"
-                      src={card.image}
-                      alt={card.name}
-                      className="w-full h-full object-cover"
-                      width={256}   // Specify the desired width
-                      height={365}  // Specify the desired height
-                    />
-                    {/*<img 
+                      <Image
+                        // loading="eager"
+                        src={card.image}
+                        alt={card.name}
+                        className="w-full h-full object-cover"
+                        width={256}   // Specify the desired width
+                        height={365}  // Specify the desired height
+                      />
+                      {/*<img 
                         src={card.image} 
                         alt={card.name} 
                         className="w-full h-full object-cover"
@@ -220,9 +219,9 @@ export default function MemoryGame() {
                     </div>
                     <div className="flex-grow flex flex-col justify-center">
                       <p className="text-xs font-medium line-clamp-2">{card.name} (#{card.rank})</p>
-                        {/* <p className="text-xs text-gray-600">Rank #{card.rank}</p> */}
+                      {/* <p className="text-xs text-gray-600">Rank #{card.rank}</p> */}
                     </div>
-                    
+
                   </div>
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-blue-500">
