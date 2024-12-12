@@ -6,58 +6,7 @@ import { Alert, AlertTitle } from '@/components/ui/alert';
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 
-const players = [
-  {
-    name: "WANG Chuqin",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121558_Headshot_R_WANG_Chuqin.png",
-    rank: 1
-  },
-  {
-    name: "LIN Shidong",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/137237_Headshot_R_LIN_Shidong.png",
-    rank: 2
-  },
-  {
-    name: "Tomokazu HARIMOTO",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123980_HEADSHOT_R_Tomokazu_HARIMOTO.png",
-    rank: 3
-  },
-  {
-    name: "Felix LEBRUN",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/135977_HEADSHOT_R_Felix_LEBRUN.png",
-    rank: 4
-  },
-  {
-    name: "LIANG Jingkun",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/119588_Headshot_R_LIANG_Jingkun.png",
-    rank: 5
-  },
-  {
-    name: "FAN Zhendong",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121404_Headshot_R_FAN_Zhendong.png",
-    rank: 6
-  },
-  {
-    name: "Hugo CALDERANO",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115641_Headshot_R_CALDERANO_Hugo.png",
-    rank: 7
-  },
-  {
-    name: "MA Long",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/105649_Headshot_R_MA_Long.png",
-    rank: 8
-  },
-  {
-    name: "Truls MOREGARD",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/122044_Headshot_R_MOREGARD_Truls.png",
-    rank: 9
-  },
-  {
-    name: "LIN Gaoyuan",
-    image: "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115910_Headshot_R_LIN_Gaoyuan.png",
-    rank: 10
-  }
-];
+const players = [{"name":"WANG Chuqin","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121558_Headshot_R_WANG_Chuqin.png","rank":1},{"name":"LIN Shidong","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/137237_Headshot_R_LIN_Shidong.png","rank":2},{"name":"Tomokazu HARIMOTO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123980_HEADSHOT_R_Tomokazu_HARIMOTO.png","rank":3},{"name":"Felix LEBRUN","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/135977_HEADSHOT_R_Felix_LEBRUN.png","rank":4},{"name":"LIANG Jingkun","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/119588_Headshot_R_LIANG_Jingkun.png","rank":5},{"name":"FAN Zhendong","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121404_Headshot_R_FAN_Zhendong.png","rank":6},{"name":"Hugo CALDERANO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115641_Headshot_R_CALDERANO_Hugo.png","rank":7},{"name":"MA Long","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/105649_Headshot_R_MA_Long.png","rank":8},{"name":"Truls MOREGARD","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/122044_Headshot_R_MOREGARD_Truls.png","rank":9},{"name":"LIN Gaoyuan","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115910_Headshot_R_LIN_Gaoyuan.png","rank":10}];
 
 const createCards = () => {
   const pairs = [...players, ...players].map((player, index) => ({
