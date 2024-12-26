@@ -4,21 +4,9 @@ import { useState, useEffect } from 'react';
 import { Shuffle } from 'lucide-react';
 import { Alert, AlertTitle } from '@/components/ui/alert';
 import { Card } from '@/components/ui/card';
-import Image from 'next/image';
 
-// const malePlayers = [{"name":"WANG Chuqin","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121558_Headshot_R_WANG_Chuqin.png","rank":1},{"name":"LIN Shidong","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/137237_Headshot_R_LIN_Shidong.png","rank":2},{"name":"Tomokazu HARIMOTO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123980_HEADSHOT_R_Tomokazu_HARIMOTO.png","rank":3},{"name":"Felix LEBRUN","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/135977_HEADSHOT_R_Felix_LEBRUN.png","rank":4},{"name":"LIANG Jingkun","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/119588_Headshot_R_LIANG_Jingkun.png","rank":5},{"name":"FAN Zhendong","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121404_Headshot_R_FAN_Zhendong.png","rank":6},{"name":"Hugo CALDERANO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115641_Headshot_R_CALDERANO_Hugo.png","rank":7},{"name":"MA Long","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/105649_Headshot_R_MA_Long.png","rank":8},{"name":"Truls MOREGARD","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/122044_Headshot_R_MOREGARD_Truls.png","rank":9},{"name":"LIN Gaoyuan","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115910_Headshot_R_LIN_Gaoyuan.png","rank":10}];
-// const femalePlayers = [{"name":"SUN Yingsha","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/131163_HEADSHOT_R_SUN_Yingsha.png","rank":1},{"name":"WANG Manyu","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121411_Headshot_R_WANG_Manyu.png","rank":2},{"name":"WANG Yidi","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/124110_Headshot_R_WANG_Yidi.png","rank":3},{"name":"CHEN Meng","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/HEADSHOT_R_CHEN_Meng.png","rank":4},{"name":"CHEN Xingtong","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121403_Headshot_R_CHEN_Xingtong.png","rank":5},{"name":"Hina HAYATA","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123672_Headshot_R_HAYATA_Hina.png","rank":6},{"name":"Miwa HARIMOTO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/136711_HEADSHOT_R_Miwa_HARIMOTO.png","rank":7},{"name":"Satsuki ODO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/133405_Headshot_R_ODO_Satsuki.png","rank":8},{"name":"CHENG I-Ching","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/110797_Headshot_R_CHENG_I_Ching.png","rank":9},{"name":"SHIN Yubin","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123977_Headshot_R_SHIN_Yubin.png","rank":10}];
-const players = [{"name":"SUN Yingsha","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/131163_HEADSHOT_R_SUN_Yingsha.png","rank":1},{"name":"WANG Manyu","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121411_Headshot_R_WANG_Manyu.png","rank":2},{"name":"WANG Yidi","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/124110_Headshot_R_WANG_Yidi.png","rank":3},{"name":"CHEN Meng","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/HEADSHOT_R_CHEN_Meng.png","rank":4},{"name":"CHEN Xingtong","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121403_Headshot_R_CHEN_Xingtong.png","rank":5},{"name":"Hina HAYATA","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123672_Headshot_R_HAYATA_Hina.png","rank":6},{"name":"Miwa HARIMOTO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/136711_HEADSHOT_R_Miwa_HARIMOTO.png","rank":7},{"name":"Satsuki ODO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/133405_Headshot_R_ODO_Satsuki.png","rank":8},{"name":"CHENG I-Ching","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/110797_Headshot_R_CHENG_I_Ching.png","rank":9},{"name":"SHIN Yubin","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123977_Headshot_R_SHIN_Yubin.png","rank":10}];
-
-const createCards = () => {
-  const pairs = [...players, ...players].map((player, index) => ({
-    id: index,
-    ...player,
-    isFlipped: false,
-    isMatched: false
-  }));
-  return shuffle(pairs);
-};
+const malePlayers = [{"name":"WANG Chuqin","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121558_Headshot_R_WANG_Chuqin.png","rank":1},{"name":"LIN Shidong","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/137237_Headshot_R_LIN_Shidong.png","rank":2},{"name":"Tomokazu HARIMOTO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123980_HEADSHOT_R_Tomokazu_HARIMOTO.png","rank":3},{"name":"Felix LEBRUN","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/135977_HEADSHOT_R_Felix_LEBRUN.png","rank":4},{"name":"LIANG Jingkun","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/119588_Headshot_R_LIANG_Jingkun.png","rank":5},{"name":"FAN Zhendong","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121404_Headshot_R_FAN_Zhendong.png","rank":6},{"name":"Hugo CALDERANO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115641_Headshot_R_CALDERANO_Hugo.png","rank":7},{"name":"MA Long","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/105649_Headshot_R_MA_Long.png","rank":8},{"name":"Truls MOREGARD","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/122044_Headshot_R_MOREGARD_Truls.png","rank":9},{"name":"LIN Gaoyuan","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/115910_Headshot_R_LIN_Gaoyuan.png","rank":10}];
+const femalePlayers = [{"name":"SUN Yingsha","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/131163_HEADSHOT_R_SUN_Yingsha.png","rank":1},{"name":"WANG Manyu","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121411_Headshot_R_WANG_Manyu.png","rank":2},{"name":"WANG Yidi","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/124110_Headshot_R_WANG_Yidi.png","rank":3},{"name":"CHEN Meng","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/HEADSHOT_R_CHEN_Meng.png","rank":4},{"name":"CHEN Xingtong","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121403_Headshot_R_CHEN_Xingtong.png","rank":5},{"name":"Hina HAYATA","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123672_Headshot_R_HAYATA_Hina.png","rank":6},{"name":"Miwa HARIMOTO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/136711_HEADSHOT_R_Miwa_HARIMOTO.png","rank":7},{"name":"Satsuki ODO","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/133405_Headshot_R_ODO_Satsuki.png","rank":8},{"name":"CHENG I-Ching","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/110797_Headshot_R_CHENG_I_Ching.png","rank":9},{"name":"SHIN Yubin","image":"https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123977_Headshot_R_SHIN_Yubin.png","rank":10}];
 
 interface Player {
   name: string;
@@ -41,39 +29,49 @@ const shuffle = (array: Card[]): Card[] => {
   return newArray;
 };
 
+const createCards = (players: Player[]) => {
+  const pairs = [...players, ...players].map((player, index) => ({
+    id: index,
+    ...player,
+    isFlipped: false,
+    isMatched: false
+  }));
+  return shuffle(pairs);
+};
+
 export default function MemoryGame() {
+  // Estados para controlar el flujo del juego
+  const [gameStarted, setGameStarted] = useState(false);
+  const [selectedGender, setSelectedGender] = useState<'male' | 'female' | null>(null);
   const [cards, setCards] = useState<Card[]>([]);
-  const [flippedCards, setFlippedCards] = useState<HandleCardClickProps[]>([]);
+  const [flippedCards, setFlippedCards] = useState<Card[]>([]);
   const [moves, setMoves] = useState(0);
   const [gameWon, setGameWon] = useState(false);
-  const [showAlert, setShowAlert] = useState(false); // Nuevo estado para controlar la visibilidad de la alerta
+  const [showAlert, setShowAlert] = useState(false);
 
-  useEffect(() => {
-    setCards(createCards());
-  }, []);
+  // Función para iniciar el juego con la categoría seleccionada
+  const startGame = (gender: 'male' | 'female') => {
+    setSelectedGender(gender);
+    setCards(createCards(gender === 'male' ? malePlayers : femalePlayers));
+    setGameStarted(true);
+    // Reiniciamos todos los estados del juego
+    setFlippedCards([]);
+    setMoves(0);
+    setGameWon(false);
+    setShowAlert(false);
+  };
 
   useEffect(() => {
     if (gameWon) {
-      setShowAlert(true); // Muestra la alerta al ganar el juego
+      setShowAlert(true);
       const timer = setTimeout(() => {
-        setShowAlert(false); // Oculta la alerta después de 5 segundos
+        setShowAlert(false);
       }, 5000);
-
-      // Limpieza del timer si el componente se desmonta antes
       return () => clearTimeout(timer);
     }
   }, [gameWon]);
 
-  interface HandleCardClickProps {
-    id: number;
-    name: string;
-    image: string;
-    rank: number;
-    isFlipped: boolean;
-    isMatched: boolean;
-  }
-
-  const handleCardClick = (clickedCard: HandleCardClickProps): void => {
+  const handleCardClick = (clickedCard: Card): void => {
     if (flippedCards.length === 2 || clickedCard.isFlipped || clickedCard.isMatched) return;
 
     const newCards = cards.map(card =>
@@ -112,26 +110,58 @@ export default function MemoryGame() {
     }
   };
 
+  // Función modificada para volver a la pantalla de selección
   const resetGame = () => {
-    setCards(createCards());
+    setGameStarted(false);
+    setSelectedGender(null);
+    setCards([]);
     setFlippedCards([]);
     setMoves(0);
     setGameWon(false);
+    setShowAlert(false);
   };
 
+  // Pantalla de selección inicial
+  if (!gameStarted) {
+    return (
+      <div className="h-screen w-screen max-w-[1280px] max-h-[768px] mx-auto overflow-hidden">
+        <div className="h-full flex flex-col items-center justify-center gap-8">
+          <h1 className="text-3xl font-bold">Memoria: Top 10 Tenis de Mesa</h1>
+          <div className="flex gap-4">
+            <button
+              onClick={() => startGame('male')}
+              className="px-8 py-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Jugar con Top 10 Masculino
+            </button>
+            <button
+              onClick={() => startGame('female')}
+              className="px-8 py-4 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-colors"
+            >
+              Jugar con Top 10 Femenino
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Pantalla del juego
   return (
     <div className="h-screen w-screen max-w-[1280px] max-h-[768px] mx-auto overflow-hidden">
       <div className="p-2 h-full flex flex-col">
         <div className="flex justify-between items-center mb-2">
-          <h1 className="text-xl font-bold">Memoria: Top 10 Tenis de Mesa</h1>
+          <h1 className="text-xl font-bold">
+            Memoria: Top 10 {selectedGender === 'male' ? 'Masculino' : 'Femenino'}
+          </h1>
           <div className="flex items-center gap-4">
             <span className="text-lg">Movimientos: {moves}</span>
             <button
               onClick={resetGame}
-              className="flex items-center gap-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+              className="flex items-center gap-2 px-3 py-1 bg-slate-600 text-white rounded hover:bg-slate-700"
             >
               <Shuffle size={16} />
-              Reiniciar
+              Restart
             </button>
           </div>
         </div>
@@ -146,36 +176,27 @@ export default function MemoryGame() {
           {cards.map((card) => (
             <Card
               key={card.id}
-              className={`w-full h-full cursor-pointer transition-all duration-300 ${card.isFlipped || card.isMatched ? 'bg-white' : 'bg-blue-500'
-                }`}
+              className={`w-full h-full cursor-pointer transition-all duration-300 ${
+                card.isFlipped || card.isMatched ? 'bg-white' : 'bg-gray-500'
+              }`}
               onClick={() => handleCardClick(card)}
             >
               <div className="h-full flex items-center justify-center">
                 {(card.isFlipped || card.isMatched) ? (
                   <div className="text-center p-2 flex flex-col items-center justify-between h-full">
                     <div className="w-20 h-32 overflow-hidden mb-1 flex-shrink-0">
-                      <Image
-                        // loading="eager"
+                      <img 
                         src={card.image}
                         alt={card.name}
                         className="w-full h-full object-cover"
-                        width={256}   // Specify the desired width
-                        height={365}  // Specify the desired height
                       />
-                      {/*<img 
-                        src={card.image} 
-                        alt={card.name} 
-                        className="w-full h-full object-cover"
-                    /> */}
                     </div>
                     <div className="flex-grow flex flex-col justify-center">
                       <p className="text-xs font-medium line-clamp-2">{card.name} (#{card.rank})</p>
-                      {/* <p className="text-xs text-gray-600">Rank #{card.rank}</p> */}
                     </div>
-
                   </div>
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-blue-500">
+                  <div className="w-full h-full flex items-center justify-center bg-gray-500">
                     <span className="text-white text-4xl">?</span>
                   </div>
                 )}
