@@ -1,5 +1,6 @@
-https://memory-game-sigma-bay.vercel.app/
+You can run the game directly at this [URL](https://memory-game-sigma-bay.vercel.app/)
 
+If you want to download the source code and run it on your machine, here's a guide.
 ___
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
